@@ -43,7 +43,10 @@ function App() {
           allUsersArray={allUsersArray}
           setAllUsersArray={setAllUsersArray}
         />
-        {allUsersArray.length ? <DataTable items={items} /> : <Loader />}
+        {
+          // If connection is slow, user will see a loader while data is pending
+          allUsersArray.length ? <DataTable items={items} /> : <Loader />
+        }
 
         <Pagination
           currentPage={currentPage}
